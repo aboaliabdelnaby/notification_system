@@ -9,7 +9,7 @@ use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class SendPasswordResetEmail
+class PasswordChangedListener
 {
     /**
      * Create the event listener.

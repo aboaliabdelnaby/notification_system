@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\UserRegisteredEvent;
 use App\Http\Controllers\Controller;
 use App\Jobs\SendWelcomeEmailJob;
 use App\Models\User;
@@ -69,7 +70,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        dispatch(new SendWelcomeEmailJob($user->toarray()));
+        event(new UserRegisteredEvent($user));
         return $user;
     }
 }

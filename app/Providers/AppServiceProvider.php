@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Listeners\SendPasswordResetEmail;
+use App\Listeners\PasswordChangedListener;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
@@ -22,9 +22,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Event::listen(
-            PasswordReset::class,
-            SendPasswordResetEmail::class,
-        );
+      //
     }
 }
